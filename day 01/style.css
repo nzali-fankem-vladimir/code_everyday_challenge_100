@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    font-family: 'roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;  
+}
+
+.conteneur {
+    display: flex;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+}
+
+.fleur {background-image: url(../images/photo1.jpg);}
+.poisson {background-image: url(../images/photo2.jpg);}
+.casque {background-image: url(../images/photo3.jpg);}
+.chute {background-image: url(../images/photo4.jpg);}
+
+.active {
+    color: #fff;
+    position: absolute;
+    top: 695px;
+    display: none;
+}
+
+.photo{
+    border-radius: 65px;
+    width: 5em;
+    height: 37em;
+    object-fit: cover;
+    transition: .5s linear;
+}
