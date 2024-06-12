@@ -37,6 +37,8 @@ body {
     left: 20px;
     margin: 0;
     opacity: 0;
+    transform: translate(900px);
+    transition: transform 0.1s;
 }
 .panel.active {
      flex: 5;
