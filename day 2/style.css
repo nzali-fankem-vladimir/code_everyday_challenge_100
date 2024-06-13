@@ -1,73 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
 body {
+    background-color: #f6f7fb;
+    font-family: 'muli', sans-serif;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    overflow: hidden;
+    margin: 0;
 }
 
 .container {
     text-align: center;
-    width: 40em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .progress-container {
     display: flex;
     justify-content: space-between;
     position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+} 
+
+.progress-container::before{
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
     width: 100%;
-    max-width: 400px;
-    margin: 20px 0;
+    z-index: -1;
 }
 
 .progress {
+    background-color: var(--line-border-fill);
     position: absolute;
-    background-color: #3498db;
-    /* background-color: #f0f0f0; */
     top: 50%;
     left: 0;
-    right: 0;
+    transform: translateY(-50%);
     height: 4px;
+    width: 0%;
     z-index: -1;
-    transition: width 0.4s ease;
+    transition: .4s ease;
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
     background-color: #fff;
-    border-radius: 50%;
-    border: 3px solid #d3d3d3;
+    color: #999;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: border-color 0.4s ease;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    transition: .4s ease;
 }
 
 .circle.active {
-    border-color: #3498db;
+    border-color: var(--line-border-fill);
 }
-
-.buttons {
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    background-color: #3498db;
+.btn {
+    background-color: var(--line-border-fill);
     color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: 0;
+    border-radius: 6px;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
 }
 
-button:disabled {
-    background-color: #d3d3d3;
-    cursor: not-allowed;
+.btn:active {
+    transform:scale(0.98)
+}
+
+.btn:focus {
+    outline: 0;
+}
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    cursor: pointer;
 }
