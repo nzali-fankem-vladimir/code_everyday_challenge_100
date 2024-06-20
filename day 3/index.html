@@ -3,51 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>rotating navigation </title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="div_menu">
-        <div class="sous_div_menu">
-            <img id="arrow_menu" src="../images/arrow.png" alt="">
-            <img id="burger_menu" src="../images/menu-btn.png" alt="">
+<body>      
+    <div class="container">
+        <div class="circle-container">
+            <div class="circle">
+                <button id="close">
+                    <i class="fa fa-times"></i>
+                </button>
+                <button id="open">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
         </div>
-       
-    </div>
-    <div class="div_main">
-         <main>
-        <h1>Amazing Article</h1>
-        <i>florin pop</i>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ea voluptates, esse eaque corrupti illo nobis quo porro dolore nostrum natus est quam architecto dolorum dicta tempore, animi aperiam inventore? lo
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit explicabo animi dolore adipisci facilis. Labore ipsa corporis iusto cupiditate error dolorum, tempore molestias consectetur quaerat commodi ipsam perferendis optio doloribus.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum aut autem eos non ducimus quaerat, dolore accusamus nulla iusto quo nobis suscipit ab error molestias! Sequi nostrum excepturi obcaecati beatae?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam rem, illum voluptatibus nisi ullam illo id labore, nihil adipisci explicabo, numquam esse hic laborum. Fuga autem sequi magni iure maxime!
-        </p> <br>
-        <h2>My picture</h2>
-        <div class="div_image">
-            <img src="../images/photo3.jpg" alt="">
-        </div> 
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta fuga pariatur libero dolore veritatis, quos obcaecati aliquam repudiandae beatae sed, ad perferendis consequatur error numquam! Eveniet, suscipit enim. Aliquam, molestias?
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum placeat hic quod deserunt accusamus fugit veritatis cum animi harum quidem doloremque obcaecati iste deleniti ab molestias, blanditiis sed molestiae illo!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum ad voluptatem libero corporis architecto. Excepturi rem tempora aperiam atque architecto officia odit, ipsa nemo dolore vero, et nam non voluptates?
-        </p>
-    </main>
+
+        <div class="content">
+            <h1>amazing article</h1>
+            <small>Florin Pop</small>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam cum hic at ullam rem facere. Officiis quis ad sit corporis! Nostrum expedita dolores, velit corporis suscipit soluta nam commodi ab quam numquam modi sed repellat facere explicabo cumque at unde dicta ex molestias quod porro quae harum! Blanditiis corporis dolorem, corrupti ex at inventore pariatur, neque dolores, mollitia quis consectetur. Quidem illum mollitia numquam sit quis voluptatem dolorum labore doloribus nesciunt vero temporibus blanditiis earum accusamus repellendus itaque nisi recusandae laudantium, quia, molestiae natus minima sequi? Praesentium illo ipsa magnam, placeat aut a est assumenda doloremque perferendis dolorum porro quod!</p>
+
+            <h3>my dog</h3>
+            <img src="vlad.png" alt="" srcset="">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam ea hic facilis quae cupiditate nihil ratione temporibus officia aspernatur voluptate vero architecto delectus laborum qui perspiciatis tempora dolorum molestias quod in beatae, sapiente dolor esse! Mollitia sequi qui officiis, et molestiae architecto fugit culpa soluta, eligendi unde tenetur recusandae ducimus ipsam dolorem earum inventore quidem quibusdam beatae officia non ut accusamus! Facilis nostrum autem laborum excepturi similique nisi, molestias, ipsum dolorem quaerat accusamus, eveniet iste!</p>
+        </div>
     </div>
     <nav>
-        <div>
-            <img src="../images/home.png" alt=""><p>home</p>
-        </div>
-        <div>
-            <img src="../images/user.png" alt=""><p>absolute</p>
-        </div>
-        <div>
-        <img src="../images/email.png" alt=""><p>contact</p>
-        </div>
+        <ul>
+            <li><i class="fa fa-home"></i>Home</li>
+            <li><i class="fa fa-user"></i>about</li>
+            <li><i class="fa fa-envelope"></i>contact</li>
+        </ul>
     </nav>
-   
-
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
