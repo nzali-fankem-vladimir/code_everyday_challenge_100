@@ -1,19 +1,23 @@
-let count_value = document.getElementById('count_value')
-let div_image = document.querySelector('.div_image')
+const loadText = document.querySelector('.loading-text')
+const bg = document.querySelector('.bg')
+
+let load = 0
+
+let int = setInterval(blurring, 30)
+
+function blurring() {
+    load++
 
 
-let val_compteur = 1;
-let val_opacity  = 100
-    const interval = setInterval(() => {
-        if (val_compteur <= 100 && val_opacity != 0) {
-            count_value.innerHTML = `${val_compteur}` + '%';
-            div_image.style.opacity = `${val_compteur}` / 100
-            count_value.style.opacity = `${val_opacity}` / 100
+    if(load > 99) {
+        clearInterval(int)
+    }
+    loadText.innerText = `${load}%`
+    loadText.style.opacity = scale(load, 0, 100, 1, 0) 
+    bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+}
 
-            val_compteur++;
-            val_opacity--
-        } else {
-            clearInterval(interval);
-        }
-    }, 25);
-    
+
+const scale = (num, in_min, in_max, out_min, out_max) => {
+    return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
