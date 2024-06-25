@@ -1,20 +1,20 @@
-const boxs = document.querySelectorAll('.box')
-let j = [1, 2]
-let k 
+const boxes = document.querySelectorAll('.box')
 
-window.addEventListener('scroll', ()=> {
 
-    boxs.forEach((box, idx)=> {
-        const rect = box.getBoundingClientRect();
-        const windowHeight = window.innerHeight - 10;
-        if (rect.bottom <= windowHeight) {
-            k = idx % boxs.length
-            box.classList.add('animate');
-        } else {
-            box.classList.remove('animate');
+window.addEventListener('scroll', checkboxes)
+
+checkboxes()
+
+function checkboxes() {
+    const triggerBottom = window.innerHeight / 6 * 4
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top
+
+        if (boxTop < triggerBottom) {
+            box.classList.add('show')
+        }else {
+            box.classList.remove('show')
         }
-
     });
 
-    
-})
+}

@@ -7,55 +7,43 @@
 
 body {
     font-family: 'roboto', sans-serif;
+    background-color: #efedd6;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* position: relative; */
-    background-color: antiquewhite;
-    max-width: 100vw;
+    justify-content: center;
+    margin: 0;
     overflow-x: hidden;
 }
-h3 {
-    font-size: 1.7em;
-    margin-top: 5px;
-}
 
-.scroll_box {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
-
+h1 {
+    margin: 10px;
 }
 
 .box {
-    box-shadow: 10px 02px 06px rgba(0, 0, 0, 0.5);  
+    background-color: steelblue;
     color: #fff;
-    font-size: 1.1em;
-    background-color: rgba(9, 64, 126, 0.733);
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 18em;
-    height: 10em;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
     border-radius: 10px;
-    transition: transform .4s linear;
-
-}
-.box_effect0{
-    transform: translateX(100em);
-
+    box-shadow: 2px 4px 5px rgb(0, 0, 0, 0.3);
+    transform: translateX(400%);
+    transition: transform 0.4s ease;
 }
 
-.box_effect1{
-    transform: translateX(-100em);
-
+.box:nth-of-type(even) {
+    transform: translateX(-400%);
 }
 
+.box.show {
+    transform: translateX(0);
+}
 
-
-.box.animate {
-    transform: none;
-    transition: .4s linear;
+.box h2 {
+    font-size: 45px;
 }
 
