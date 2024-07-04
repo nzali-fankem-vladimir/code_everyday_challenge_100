@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire Agréable</title>
+    <title>Form Input Wave</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
-        <form action="#" method="post">
-            <h3>Please Login</h3>
-            <label for="email">
-                <span class="label_email">Email</span>
-            </label>
-            <input type="email" class="email" name="email" required>
+    <div class="container">
+        <h1>Please login</h1>
+        <form >
+            <div class="form-control">
+                <input type="text" required>
+                <label>Email</label>
+            </div>
 
-            <label for="password">
-                <span class="label_pass">Password</span>
-            </label>
-            <input type="password" class="password" name="password" required>
-            <button type="submit">Login</button>
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <div class="form-control">
+                <input type="password" required>
+                <label>password</label>
+            </div>
+
+
+            <button class="btn">Login</button>
+
+            <p class="text">Dont'have an account? <a href="#">Regsiter</a></p>
         </form>
     </div>
-    <script src="script.js"></script>
+
+    
+<script src="script.js"></script>
 </body>
 </html>
