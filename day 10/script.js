@@ -1,7 +1,7 @@
-const jokeEl = document.getElementById('joke')
-const jokeBtn = document.getElementById('jokBtn')
+const btn_joke = document.querySelector('.btn')
+const div_joke = document.querySelector('.div_joke')
 
-jokeBtn.addEventListener('click', generateJoke)
+btn_joke.addEventListener('click', generateJoke)
 
 generateJoke()
 
@@ -16,6 +16,6 @@ function generateJoke() {
     fetch('https://icanhazdadjoke.com/', config)
     .then(res => res.json())
     .then(data => {
-        jokeEl.innerHTML = data.joke
+        div_joke.innerHTML = data.joke
     })
 }
