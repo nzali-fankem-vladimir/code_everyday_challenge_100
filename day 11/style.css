@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*,::before,::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(214, 214, 214);
+}
+
+.input{
+    background-color: #eceaea;
+    padding: 1.3vw;
+    border: 1px solid rgb(151, 150, 150);
+    font-weight: 600;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: black;
+    width: 20vw;
+    outline: 0;
+    text-align: center;
+    /* display: none; */
+}
+
+.display{
+    width: 7vw;
+    height: 3vw;
+    background-color: white;
+    border: 1px solid rgb(151, 150, 150);
+    margin-inline: 2vw;
+    position: relative;
+    display: none;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.one::before{
+    content: 'event_key';
+    position: absolute;
+    bottom: 110%;
+}
+
+
+.two::before{
+    content: 'event_keyCode';
+    position: absolute;
+    bottom: 110%;
+}
+
+.three::before{
+    content: 'event_code';
+    position: absolute;
+    bottom: 110%;
+}
+::before{
+    font-size: .7vw;
+}
+
+
+
+
+
