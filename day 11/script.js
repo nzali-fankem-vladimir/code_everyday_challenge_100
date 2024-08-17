@@ -1,26 +1,18 @@
-let input = document.querySelector('.input')
+const insert = document.getElementById('insert')
+window.addEventListener('keydown', (event)=>{
+    insert.innerHTML = `<div class="key">
+            ${event.key === ' ' ? 'space': event.key}
+            <small>event.key</small>
+        </div>
 
-let display_one = document.querySelector('.one')
-let display_two = document.querySelector('.two')
-let display_three = document.querySelector('.three')
-let box_display = document.querySelectorAll('.display')
+        <div class="key">
+            ${event.keyCode}
+            <small>event.keycode</small>
+        </div>
 
-
-document.addEventListener("keydown", function(event) {
-    input.style.display = 'none'
-    box_display.forEach((box) => {
-        box.style.display = 'flex';
-    });    
-
-    let keyCode = event.keyCode
-    let key = event.key
-    let code = event.code
-    console.log("Touche pressée : " + keyCode);
-
-    display_two.innerHTML = keyCode 
-    display_one.innerHTML = key
-    display_three.innerHTML = code
-    
-});
-
-
+        <div class="key">
+        ${event.Code !== undefined ? 'space': event.code}
+            <small>event.code</small>
+        </div>
+        `
+})
