@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=mulidisplay=swap');
+
+*,::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(226, 226, 226);
+}
+
+.faq_div{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 1vh;
+    min-height: 50vh;
+}
+h2{
+    text-align: center;
+    margin-block: 2vh;
+}
+
+.box_question{
+    border: 1px solid #555;
+    height: 4vw;
+    width: 28vw;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px black;
+    position: relative;
+    display: flex;
+    font-weight: 550;
+}
+.box_question .arrow_down, .close{
+    position: absolute;
+    right: 3%;
+    top: 1vw;
+}
+.box_question p{
+    position: absolute;
+    top: 1vw;
+    margin-left: 1vw;
+}
+
+
+.bg {
+    background-image: url(../images/commentaire.jpg);
+    background-position-x: -10%;
+    background-position-y: -4vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    height: 7vw;
+}
+.bg .answer{
+    margin-top: 7vh;
+    display: block;
+}
+.bg .close{
+    display: block;
+    border-radius: 50%;
+    background-color: gray;
+}
+.close , .answer, .bg .arrow_down{
+    display: none;
+}
+
+
+
+
+
+
+
