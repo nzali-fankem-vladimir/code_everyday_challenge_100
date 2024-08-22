@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animated NAvigation</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/eb89002717.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="white_div div"></div>
-    <nav class="nav">
-        <span>
-        <a href="#">Home</a>
-        <a href="#">Works</a>
-        <a href="#">About</a>
-        <a href="#">Contact </a>
-        </span>
-        <div class="cross">
-            <i class="fa-solid fa-xmark two"></i>
-            <i class="fa-solid fa-equals one"></i>
-        </div>
-    </nav>
-    <div class="blue_div div"> </div>
+ <nav class="active" id="nav">
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Works</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+    <button class="icon" id="toggle">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+    </button>
+ </nav>
 
     
 <script src="script.js"></script>
