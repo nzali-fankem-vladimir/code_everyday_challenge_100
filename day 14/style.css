@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*,::before,::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Muli', sans-serif;
+    height: 100vh;
+    position: relative;
+}
+
+.div{
+    width: 100%;
+    height: 50vh;
+}
+.white_div {
+    background-color: #d8edf8;
+}
+
+
+.blue_div{
+    background-color: #1779ce;
+}
+
+.nav{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto auto;
+    width: 310px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: width 1s linear;
+    font-size: .9em;
+}
+
+.nav a {
+    transition: transform 1s linear;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+
+.cross{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.fa-solid{
+    font-size: 1.4em;
+    color: blue;
+
+}
+
+
+.rotate {
+    transform: rotateY(360deg);
+    transform-origin: center;
+    transition: transform 1s linear;
+}
+
+
+
+.moove_open{
+    transform: translateX(-101%);
+    transition: transform 1.1s ease-in;
+}
+
+.active{
+    width: 45px;
+    transition: width 1s ease-out;
+} 
+
+span{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+}
