@@ -1,130 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monstserrat:400,600&display=swap');
+:root{
+    --border-color: #144fc6;
+    --fil-color: #6ab3f8;
+}
 
-*,::after,::before {
-    margin: 0;
-    padding: 0;
+
+
+* {
     box-sizing: border-box;
+    margin: 0;
 }
-:root {
-    --couleur-de-fond: #029deb;
-    --couleur-text: #ffffff;
-    --couleur-text-foncé: rgba(16, 16, 180, 0.808);
-    --couleur-verre-plein: #b8e3ff;
-}
+
 
 body {
-    font-family: 'Muli', sans-serif;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    background-color: var(--couleur-de-fond);
-}
-
-
-.container {
+    background-color: #3494e4;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-    text-align: center;
-    color: var(--couleur-text);
+    margin-bottom: 40px;
 }
-.water_container{
-    width: 100%;
-    height: 400px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 35px;
-}
-.water_container::before{
-    content: '';
-    width: 200px;
-    height: 400px;
-    background-color: #ffffff;
-    position: absolute;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    outline: 2px solid var(--couleur-text-foncé);
+
+h1{
+    margin: 10px 0 0;
 }
 
 
-.container h2{
-    margin-block: 10px;
+h3{
+    font-weight: 400;
+    margin: 10px 0;
 }
 
-#text_1{
-    margin-bottom: 20px;
-}
-
-.great_container{
-    width: 200px;
-    height: 0;
-    color: var(--couleur-verre-plein);
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    background-color: var(--couleur-verre-plein);
-    position: absolute;
-    bottom: 0;
-    color: var(--couleur-text-foncé);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    font-weight: 600;
-    transition: height .5s ease;
-}
-
-#text_2{
-    margin-bottom: 20px;
-}
-
-.first_rg{
-    /* border: 1px solid black; */
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 5%;
-    margin-bottom: 25px;
-}
-
-
-.first_rg > div,.second_rg > div  {
-    height: 100px;
-    padding-inline: 15px;
-    background-color: #ffffff;
-    color: var(--couleur-text-foncé);
-    font-weight: 600;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+.cup{
+    background-color: #fff;
+    border: 4px solid var(--border-color);
+    color: var(--border-color);
+    border-radius: 0 0 40px 40px;
+    height: 330px;
+    width: 150px;
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    outline: 2px solid var(--couleur-text-foncé);
+    overflow: hidden;
+}
+
+.cup.cup-small {
+    width: 50px;
+    height: 95px;
+    border-radius: 0 0 15px 15px;
+    background-color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-}
-.first_rg > div p,.second_rg > div p {
-    height: .9em;
-}
-
-.second_rg{
-    /* border: 1px solid black; */
-    display: flex;
-    width: 100%;
+    font-size: 14px;
+    align-items: center;
     justify-content: center;
-    gap: 5%;
+    text-align: center;
+    margin: 5px;
+    transition: 0.3s ease;
 }
 
-
-
-.first_rg .active, .second_rg .active{
-    background-color: var(--couleur-verre-plein);
-    color: var(--couleur-text);
+.cups{
+    display: flex;
+    flex-wrap: wrap;
+    width: 280px;
+    align-items: center;
 }
 
+.cup.cup-small.full{
+    background-color: var(--fil-color);
+    color: #fff;
+}
 
 .remainded{
-    color: var(--couleur-text-foncé);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex: 1;
+    transition: 03s ease;
+}
+
+.remainded span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.remainded small{
+    font-size: 12px;
 }
 
 
+.percentage{
+    background-color: var(--fil-color);
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    height:0;
+    transition: 0.3s ease;
+}
+
+.text {
+    text-align: center;
+    margin: 0 0 5px;
+}

@@ -1,35 +1,49 @@
-const glasses_fr = document.querySelectorAll('.first_rg  div')
-let glasses_sr = document.querySelectorAll('.second_rg  div')
-let great_container = document.querySelector('.great_container')
-let span_affichage = document.querySelector('.affichage')
-let i = 0
+const smallcups = document.querySelectorAll('.cup-small')
+const liters = document.getElementById('liters')
+const percentage = document.getElementById('percentage')
+const remainded = document.getElementById('remainded')
 
-glasses_fr.forEach((glasse, idx) =>{
-    glasse.addEventListener('click', ()=>{
-        remplir(idx)
-        if (idx <= 7 && !(glasses_fr[idx].classList.contains('active'))) {
-            parcoursIncrement(idx)
-        }else if(glasses_fr[idx].classList.contains('active')){
-            // glasses_fr[idx].classList.remove('active')
-            parcoursDecrement(idx)
+updateBigCup()
+
+
+smallcups.forEach((cup, idx) =>{
+    cup.addEventListener('click', ()=> highligthCups(idx))
+})
+
+function highligthCups(idx){
+    if (smallcups[idx].classList.contains('full') && !smallcups[idx].nextElementSibling.classList.contains('full')) {
+        idx--
+    }
+    smallcups.forEach((cup, idx2) =>{
+        if (idx2 <= idx) {
+            cup.classList.add('full')
+        }else{
+            cup.classList.remove('full')
         }
     })
-}) 
-
-
-function parcoursIncrement(index){
-    for (let i = index; i >= 0; i--) {
-        glasses_fr[i].classList.add('active')
-    }
-}
-function parcoursDecrement(index){
-    for (let i = index+1; i <=7; i++) {
-        glasses_fr[i].classList.remove('active')
-    }
+    updateBigCup()
 }
 
-function remplir(index){
-    let idx_conversion = index + 1
-    great_container.style.height = `${(idx_conversion*12.5)}%`
-    span_affichage.innerHTML = `${(idx_conversion*12.5)}%`
+
+function updateBigCup(){
+    const fullCups = document.querySelectorAll('.cup-small.full').length
+
+    const totalCups = smallcups.length
+
+    if (fullCups === 0) {
+        percentage.style.visibility = 'hidden'
+        percentage.style.height = 0
+    }else {
+        percentage.style.visibility = 'visible'
+        percentage.style.height = `${fullCups / totalCups * 330}px`
+        percentage.innerHTML = `${fullCups / totalCups * 100}%`
+    }
+
+    if (fullCups === totalCups) {
+        remainded.style.visibility = 'hidden'
+        remainded.style.height = 0
+    }else {
+        remainded.style.visibility = 'visible'
+        liters.innerText = `${2-(250 * fullCups / 1000)}L`
+    }
 }
