@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*,::after,::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --couleur-de-fond: #029deb;
+    --couleur-text: #ffffff;
+    --couleur-text-foncé: rgba(16, 16, 180, 0.808);
+    --couleur-verre-plein: #b8e3ff;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    background-color: var(--couleur-de-fond);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    text-align: center;
+    color: var(--couleur-text);
+}
+.water_container{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+.water_container::before{
+    content: '';
+    width: 200px;
+    height: 400px;
+    background-color: #ffffff;
+    position: absolute;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    outline: 2px solid var(--couleur-text-foncé);
+}
+
+
+.container h2{
+    margin-block: 10px;
+}
+
+#text_1{
+    margin-bottom: 20px;
+}
+
+.great_container{
+    width: 200px;
+    height: 0;
+    color: var(--couleur-verre-plein);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: var(--couleur-verre-plein);
+    position: absolute;
+    bottom: 0;
+    color: var(--couleur-text-foncé);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 600;
+    transition: height .5s ease;
+}
+
+#text_2{
+    margin-bottom: 20px;
+}
+
+.first_rg{
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5%;
+    margin-bottom: 25px;
+}
+
+
+.first_rg > div,.second_rg > div  {
+    height: 100px;
+    padding-inline: 15px;
+    background-color: #ffffff;
+    color: var(--couleur-text-foncé);
+    font-weight: 600;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    outline: 2px solid var(--couleur-text-foncé);
+    cursor: pointer;
+}
+.first_rg > div p,.second_rg > div p {
+    height: .9em;
+}
+
+.second_rg{
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 5%;
+}
+
+
+
+.first_rg .active, .second_rg .active{
+    background-color: var(--couleur-verre-plein);
+    color: var(--couleur-text);
+}
+
+
+.remainded{
+    color: var(--couleur-text-foncé);
+}
+
+
