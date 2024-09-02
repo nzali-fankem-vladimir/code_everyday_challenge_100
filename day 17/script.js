@@ -1,84 +1,72 @@
-// console.log()
-const main_content = document.querySelector('.main')
-let count = 1
-var count1 = 1
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=994d4a825fda0fcb72e7e39caf6acfb9&page=1'
 
-remplissage()
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
+const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=994d4a825fda0fcb72e7e39caf6acfb9&query="'
 
 
+const form =document.getElementById('form')
+const search = document.getElementById('search')
+const main = document.getElementById('main')
 
-function remplissage(){
-  for (let i = 0; i < 18; i++) {
-    count++
-    reuperationFilm(count)
-    creationMovie ()
-  }
+//get initial movies
 
+getMovies(API_URL)
+
+async function getMovies(url){
+    const res = await fetch(url)
+    const data = await res.json()
+    showMovies(data.results)
 }
 
-function reuperationFilm(count){
-  let note
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTRkNGE4MjVmZGEwZmNiNzJlN2UzOWNhZjZhY2ZiOSIsIm5iZiI6MTcyNDk0NjgzNS4zMzUzNTEsInN1YiI6IjY2ZDA5NDRiZGUyZTRmYzZlNTk5MmQ1YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BsONvYR1NxjnY5nCSstY8iNkoDgQ_zsJvqA66uIzuR8'
-          
-        }
-    };
-      
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${count1}`, options)
-        .then(response => response.json())
-        .then(response =>{
-          document.querySelector(`.div_img${count}`).style.backgroundImage = `url(https://image.tmdb.org/t/p/w300/${response.results[count].poster_path})`
-          document.querySelector(`.text_movie${count}`).innerHTML = `${response.results[count].title}`;
-          document.querySelector(`.movie_overview${count}`).innerHTML = `${response.results[count].overview}`;
-          note = `${response.results[count].vote_average}`
-          document.querySelector(`.rate${count}`).innerHTML = `${response.results[count].vote_average.toFixed(1)}`;
-          if (note < 5) {
-            document.querySelector(`.rate${count}`).style.color = 'red'
-          }
-          if (note >= 5) {
-            document.querySelector(`.rate${count}`).style.color = 'orange'
-          }
+function showMovies(movies){
+    main.innerHTML = ''
 
-        })
-      .catch(err => console.error(err));
+    movies.forEach((movie) => {
+        const{ title, poster_path, vote_average, overview} = movie
 
+
+        const movieEl = document.createElement('div')
+        movieEl.classList.add('movie')
+
+        movieEl.innerHTML = `
+         <img src="${IMG_PATH + poster_path}" alt="${title}">
+         <div class="movie-info">
+            <h3>${title}</h3>
+            <span class="${getClassByRate(vote_average)}">(${vote_average})</span>
+         </div>
+         <div class="overview">
+            <h3>overview</h3>
+           ${overview}
+         </div>
+    </div>
+        `
+        main.appendChild(movieEl)
+    });
 }
 
-function creationMovie (){
-  let movie = document.createElement('div')
-  movie.classList.add('movie')
-  movie.classList.add(`movie${count}`)
-  /* movie_overview*/
-  let movie_overview = document.createElement('div')
-  movie_overview.classList.add('movie_overview')
-  movie_overview.classList.add(`movie_overview${count}`)
-  /*::::::::::::::::::::::::::: */ 
-  let div_img = document.createElement('div')
-  div_img.classList.add('div_img')
-  div_img.classList.add(`div_img${count}`)
-  let info_movie = document.createElement('div')
-  info_movie.classList.add('info_movie')
-  info_movie.classList.add(`info_movie${count}`)
-  let text = document.createElement('p')
-  text.classList.add('text_movie')
-  text.classList.add(`text_movie${count}`)
-  let rate = document.createElement('div')
-  rate.classList.add('rate')
-  rate.classList.add(`rate${count}`)
 
-
-
-  /*creation des enfants du main*/
-  main_content.appendChild(movie)
-  movie.appendChild(div_img)
-  movie.appendChild(info_movie)
-  info_movie.appendChild(text)
-  info_movie.appendChild(rate)
-  /* movie_overview*/
-  movie.appendChild(movie_overview)
-  /*;;;;;;;;;;;*/
+function getClassByRate(vote){
+    if (vote >= 8) {
+        return 'green'
+    }else if(vote>=5){
+        return 'orange'
+    }else {
+        return 'red'
+    }
 }
+
+
+
+form.addEventListener('submit', (e) =>{
+    e.preventDefault()
+
+    const searchTerm = search.value
+
+    if (searchTerm && searchTerm !== '') {
+        getMovies(SEARCH_API + searchTerm)
+        search.value = ''
+    }else {
+        window.location.reload()
+    }
+})
