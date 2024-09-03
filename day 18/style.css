@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap'); */
 
 * {
     margin: 0;
@@ -6,68 +7,78 @@
 
 
 body {
-    font-family: 'Muli', sans-serif;
-    /* background-position-x:10px; */
-}
-.container{
+    font-family: 'roboto', sans-serif;
+    /* font-family: 'Muli', sans-serif; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-position: center;
-    background-image: url(../images/bg1.jpg);
-    background-size: 100%;
-    z-index: 0;
-    position: relative;
+    overflow: hidden;
+    margin: 0;
+    background-image:  url(../images/bg1.jpg);
+    background-position: center center;
+    background-size: cover;
+    transition: 0.4s;
+    z-index: -2;
 }
 
-.foreground {
-    width: 75vw;
-    height: 80vh;
-    background-image: url(../images/bg1.jpg);
-    background-position: center;
-    background-size: 133%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.container::before{
-    position: absolute;
+
+body::before{
     content: '';
+    position: absolute;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    background-color: black;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
-    backdrop-filter: blur(1px);
-    background-color: rgba(0, 0, 0, 0.534);
 }
 
-.flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.next, .prev{
-    border: 2px solid #FF8F00;
-    width: 60px;
-    height: 70px;
-    display: inline-flex;
-    /* z-index: -1; */
-}
-.next{
+.slider-container{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    height: 70vh;
+    width: 70vw;
     position: relative;
-    left: 61px;
-    border-left: none;
-}
-.prev{
-    position: relative;
-    right: 61px;
-    border-right: none;
+    overflow: hidden;
 }
 
-.fa-solid{
-    font-size: 1.8em;
+.slide{
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    top: -15vh;
+    left: -15vw;
+    transition: 0.4s ease;
+    z-index: 1;
+}
+
+.slide.active{
+    opacity: 1;
+}
+
+.arrow{
+    position: fixed;
+    background-color: transparent;
     color: white;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 30px;
+    border: 2px solid orange;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.arrow:focus{
+    outline: 0;
+}
+
+.left-arrow{
+    left: calc(15vw - 65px);
+}
+
+.rigth-arrow{
+    right: calc(15vw - 65px);
 }

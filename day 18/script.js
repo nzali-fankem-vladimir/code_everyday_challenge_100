@@ -1,34 +1,37 @@
-const btn_nextImg = document.querySelector('.next')
-const btn_previousImg = document.querySelector('.prev')
-const div_bgSlider = document.querySelector('.foreground')
-let container = document.querySelector('.container')
-let count = 1
+const body = document.body
+const slides = document.querySelectorAll('.slide')
+const leftBtn = document.getElementById('left')
+const rightBtn = document.getElementById('right')
 
+let activeSlide = 0
 
-
-
-
-btn_nextImg.addEventListener('click', ()=>{
-    count++
-    if (count <= 9) {
-        div_bgSlider.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-        container.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-    }else{
-        count = 1
-        div_bgSlider.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-        container.style.backgroundImage = `url('../images/bg${count}.jpg')`;
+rightBtn.addEventListener('click', ()=>{
+    activeSlide ++
+    if (activeSlide > slides.length -1) {
+        activeSlide = 0 
     }
-})
-btn_previousImg.addEventListener('click', ()=>{
-    count--
-    console.log(count)
 
-    if (count>=1) {
-        div_bgSlider.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-        container.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-    }else{
-        count = 9
-        div_bgSlider.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-        container.style.backgroundImage = `url('../images/bg${count}.jpg')`;
-    }
+    setBgToBody()
+    setActiveSlide( )
 })
+leftBtn.addEventListener('click', ()=>{
+    activeSlide --
+    if (activeSlide < 0) {
+        activeSlide = slides.length - 1 
+    }
+
+    setBgToBody()
+    setActiveSlide( )
+})
+
+
+setBgToBody()
+
+function setBgToBody(){
+    body.style.backgroundImage = slides[activeSlide].style.backgroundImage
+}
+
+function setActiveSlide(){
+    slides.forEach((slide) => slide.classList.remove('active'))
+    slides[activeSlide].slide.classList.add('active')
+}

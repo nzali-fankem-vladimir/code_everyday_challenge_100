@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Backbround Slider</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/eb89002717.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <div class="container">
-        <div class="foreground">
-        <div class="prev flex">
+    <div class="slide-container">
+        <div class="slide" style="background-image: url('../images/bg1.jpg');"></div>
+
+        <div class="slide" style="background-image: url('../images/bg2.jpg');"></div>
+
+        <div class="slide" style="background-image: url('../images/bg3.jpg');"></div>
+
+        <div class="slide" style="background-image: url('../images/bg4.jpg');"></div>
+
+        <div class="slide" style="background-image: url('../images/bg5.jpg');"></div>
+
+        <button class="arrow right-arrow" id="right">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="arrow left-arrow" id="left">
             <i class="fa-solid fa-arrow-left"></i>
-        </div>
-            <div class="next flex">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
+        </button>
     </div>
-   </div> 
-   
 
     
 <script src="script.js"></script>
