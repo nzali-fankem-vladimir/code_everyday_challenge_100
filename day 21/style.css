@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Muli', sans-serif;
+    background-color: #2177b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.drop_box{
+    height: 200px;
+    width: 200px;
+    /* margin-inline: 20px; */
+    background-color: white;
+    border: 3px solid black;
+    cursor: pointer;
+}
+.container{
+    display: flex;
+    gap: 10px;
+}
+._1{
+    background-image: url(./bg2.jpg);
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+}
+
+.active{
+    background-color: black;
+    border: 3px dashed white;
+}
