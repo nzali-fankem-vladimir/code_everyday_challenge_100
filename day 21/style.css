@@ -1,40 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
 
 
 *{
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
 }
 
 body{
-    font-family: 'Muli', sans-serif;
-    background-color: #2177b9;
+    background-color: steelblue;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
-}
-.drop_box{
-    height: 200px;
-    width: 200px;
-    /* margin-inline: 20px; */
-    background-color: white;
-    border: 3px solid black;
-    cursor: pointer;
-}
-.container{
-    display: flex;
-    gap: 10px;
-}
-._1{
-    background-image: url(./bg2.jpg);
-    background-position: center;
-    background-size: cover;
-    position: fixed;
+    overflow: hidden;
+    margin: 0;
 }
 
-.active{
-    background-color: black;
-    border: 3px dashed white;
+.empty{
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    border: 3px solid black;
+    background: white;
+}
+.fill {
+    background-image: url(./bg2.jpg);
+    height: 145px;
+    width: 145px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+
+.hold{
+    border: solid 5px #ccc;
+}
+
+.hovered{
+    background-color: #333;
+    border-color: white;
+    border-style: dashed;
+}
+
+@media (max-width: 800px){
+    body{
+        flex-direction: column;
+    }
 }

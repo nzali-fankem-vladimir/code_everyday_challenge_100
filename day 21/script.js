@@ -1,30 +1,41 @@
-let newX = 0, newY = 0, startX = 0, startY = 0;
-const card = document.querySelector('._1')
-card.addEventListener('mousedown', mouseDown)
-function mouseDown(e){
-    startX = e.clientX
-    startY = e.clientY
-    document.addEventListener('mousemove', mouseMove)
-    document.addEventListener('mouseup', mouseUp)
-}
+const fill = document.querySelector('.fill')
+const empties = document.querySelectorAll('.empty')
 
-function mouseMove (e){
-    newX = startX - e.clientX
-    newY = startY - e.clientY
+fill.addEventListener('dragstart', dragStart)
+fill.addEventListener('dragend', dragEnd)
 
-    startX = e.clientX
-    startY = e.clientY
-
-    card.style.top = (card.offsetTop - newY) + 'px'
-    card.style.left = (card.offsetLeft - newX) + 'px'
-    
-}
-
-function mouseUp(e){
-    document.removeEventListener('mousemove', mouseMove)
+for(const empty of  empties){
+    empty.addEventListener('dragover', dragOver)
+    empty.addEventListener('dragenter', dragEnter)
+    empty.addEventListener('dragleave', dragLeave)
+    empty.addEventListener('drop', dragDrop)
 }
 
 
 
 
 
+
+
+function dragStart(){
+    this.className += ' hold'
+    setTimeout(()=> this.className = 'invisible', 0)
+}
+function dragEnd(){
+    this.className = 'fill'
+}
+function dragOver(e){
+    e.preventDefault()
+}
+function dragEnter(e){
+    e.preventDefault()
+    this.className += ' hovered'
+}
+function dragLeave(){
+    this.className += 'empty'
+}
+
+function dragDrop(){
+    this.className = 'empty'
+    this.append(fill)
+}
