@@ -1,79 +1,73 @@
-// Récupérer les éléments du DOM
-let btn_minus = document.querySelector('.minus');
-let btn_plus = document.querySelector('.plus');
-let display_draw_size = document.querySelector('.draw_size');
 const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let display_size = document.getElementById('size')
+let input_color = document.getElementById('color')
+let size = 20;
+display_size.innerHTML = `${size}`
 
-document.querySelector('.clear').addEventListener('click', ()=>{
-    canvas.innerHTML = ''
-    ctx.stroke();
+let color 
+let x
+let y
+let isPressed = false
+canvas.addEventListener('mousedown', (e)=>{
+    isPressed = true
+    x = e.offsetX
+    y = e.offsetY
+})
+canvas.addEventListener('mouseup', (e)=>{
+    isPressed = false
+    x = undefined
+    y = undefined
+})
+canvas.addEventListener('mousemove', (e)=>{
+    if (isPressed) {
+        const x2 = e.offsetX
+        const y2 = e.offsetY
+        drawCircle(x2,y2)
+        drawLine(x,y,x2,y2)
+
+        x= x2
+        y= y2
+    }
+
+})
+document.getElementById('clear').addEventListener('click', ()=>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+})
+function updateSize(newSize){
+    size = newSize
+    if(size < 5){
+        size = 5
+    }
+    if(size > 50){
+        size = 50
+    }
+    display_size.innerHTML = `${size}`
+}
+document.getElementById('increase').addEventListener('click', ()=>{
+   updateSize(size + 5)
+   console.log(size)
+})
+document.getElementById('decrease').addEventListener('click', ()=>{
+    updateSize(size - 5)
+    console.log(size)
 })
 
-// Initialisation de la taille du dessin
-let size = 5;
-display_draw_size.innerHTML = `${size}`;
-
-// Obtenir le contexte de dessin 2D du canevas
-const ctx = canvas.getContext('2d');
-ctx.lineWidth = size; // Set initial line width
-
-// Mise à jour de la taille du dessin et de la largeur du trait de la toile
-function updateSize(newSize) {
-    size = newSize;
-    display_draw_size.innerHTML = `${size}`;
-    ctx.lineWidth = size; // Apply new size to canvas context
+function drawCircle(x, y) {
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fillStyle = input_color.value;
+  ctx.fill();
 }
 
-// Diminuer la taille lorsque l'on clique sur le bouton "moins".
-btn_minus.addEventListener('click', () => {
-    if (size > 5) {
-        updateSize(size - 5);
-    }
-});
 
-// Augmenter la taille lorsque l'on clique sur le bouton plus
-btn_plus.addEventListener('click', () => {
-    if (size < 50) {
-        updateSize(size + 5);
-    }
-});
-
-// Dessiner des variables d'état
-let isDrawing = false;
-let lastX, lastY;
-
-// Commencer à dessiner lorsque la souris est enfoncée
-canvas.addEventListener('mousedown', (event) => {
-    isDrawing = true;
-    lastX = event.offsetX ;
-    lastY = event.offsetY;
-});
-
-// Dessiner sur la toile en fonction des mouvements de la souris
-canvas.addEventListener('mousemove', (event) => {
-    if (isDrawing) {
-        const currentX = event.offsetX;
-        const currentY = event.offsetY;
-        ctx.beginPath();
-        // ctx.arc(60, 65, 5, 0, Math.PI * 2, true)
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(currentX, currentY);
-        ctx.stroke();
-
-        lastX = currentX;
-        lastY = currentY;
-    }
-});
-
-// Arrêter de dessiner sur la souris en haut
-canvas.addEventListener('mouseup', () => {
-    isDrawing = false;
-});
-
-// Arrêter le dessin si la souris quitte le canevas
-canvas.addEventListener('mouseleave', () => {
-    isDrawing = false;
-});
-
+function drawLine(x1,y1,x2,y2){
+    ctx.beginPath()
+    ctx.moveTo(x1,y1)
+    ctx.lineTo(x2,y2)
+    ctx.strokeStyle = input_color.value
+    ctx.lineWidth = size *2
+    ctx.stroke()
+}
 
 
