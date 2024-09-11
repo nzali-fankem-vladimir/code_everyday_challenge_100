@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Muli&display=swap'); */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    width: 1000px;
+    height: 800px;
+    border: 2px solid rgb(57, 126, 184);
+}
+
+canvas{
+    width: 100%;
+    height: 85%;
+}
+
+.draw_control{
+    width: 100%;
+    height: 14.5%;
+    background-color: rgb(57, 126, 184);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.frist_cs{
+    height: 50%;
+    width: 30%;
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 3%;
+    position: relative;
+    left: 1%;
+}
+
+.frist_cs button, .draw_size, .color_selecter{
+    width: 60px;
+    height: 100%;
+    background-color: white;
+    border: none;
+}
+
+.clear{
+    width: 60px;
+    height: 50%;
+    position: relative;
+    right: 1%;
+}
+.fa-x{
+    font-size: 2rem;
+}
+.fa-plus, .fa-minus{
+    font-size: 1.7rem;
+}
