@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(254, 254, 254, 0.686);
+}
+
+.placeholder_content{
+    height: 400px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+.placeholder_img{
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-size: cover;
+    background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 35%, rgb(220, 220, 220) 50%, rgb(245, 245, 245) 65%, rgb(245, 245, 245) 100%);
+    background-size: 150%;
+    animation: loading 6s linear ;
+}
+
+
+.placeholder_secondSide{
+    height: 50%;
+    border-radius: 0 0 10px 10px;
+    padding: 20px 0 0 20px;
+    font-size: .9rem;
+    padding: 20px;
+}
+.placeholder_secondSide h4 {
+    max-width: 310px;
+    border-radius: 10px;
+    min-height: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    animation: loading 6s linear;
+    background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 35%, rgb(220, 220, 220) 50%, rgb(245, 245, 245) 65%, rgb(245, 245, 245) 100%);
+    background-size: 150%;
+}
+.placeholder_secondSide p:nth-child(-n+4){
+    margin-block: 5px;
+    max-width: 310px;
+    border-radius: 10px;
+    min-height: 15px;
+    animation: loading 6s linear ;
+    background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 35%, rgb(220, 220, 220) 50%, rgb(245, 245, 245) 65%, rgb(245, 245, 245) 100%);
+    background-size: 150%;
+}
+.user_profil p{
+    min-width: 80px;
+    border-radius: 10px;
+    max-height: 20px;
+    animation: loading 6s linear ;
+    background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 35%, rgb(220, 220, 220) 50%, rgb(245, 245, 245) 65%, rgb(245, 245, 245) 100%);
+    background-size: 150%;
+}
+.profil_img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    background: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(245, 245, 245) 35%, rgb(220, 220, 220) 50%, rgb(245, 245, 245) 65%, rgb(245, 245, 245) 100%);
+    background-size: 150%;  
+    animation: loading 6s linear ;
+}
+.user_profil{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    font-size: .9rem;
+}
+.user_profil span{ 
+    font-weight: 600;
+}
+
+
+@keyframes loading {
+    0%{
+        background-position: 500% 0%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
